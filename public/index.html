@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P2P Video Chat</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main-stage">
+        <div class="video-wrapper">
+            <span class="name-tag">Ti</span>
+            <video id="lokalniVideo" autoplay muted playsinline></video>
+        </div>
+        <div class="video-wrapper">
+            <span class="name-tag">Sagovornik</span>
+            <video id="udaljeniVideo" autoplay playsinline></video>
+        </div>
+    </div>
+
+    <div id="kontrole">
+        <button id="pozoviBtn">Započni Poziv</button>
+        <button id="muteBtn">Ugasi Mikrofon</button>
+        <button id="shareScreenBtn">Podeli Ekran</button>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
