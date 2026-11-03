@@ -1,16 +1,16 @@
 {
-  "name": "projekat",
+  "name": "signal-webrtc",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
- "scripts": {
-  "start": "node server.js",
-  "test": "echo \"Error: no test specified\" && exit 1"
-},
-  "keywords": [],
-  "author": "",
+  "description": "P2P video poziv sa WebRTC-om i Socket.IO signaling serverom",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
   "license": "ISC",
   "type": "commonjs",
+  "engines": {
+    "node": ">=18"
+  },
   "dependencies": {
     "express": "^5.2.1",
     "socket.io": "^4.8.3"

@@ -3,25 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>P2P Video Chat</title>
+    <title>Signal — P2P Video</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="main-stage">
-        <div class="video-wrapper">
-            <span class="name-tag">Ti</span>
-            <video id="lokalniVideo" autoplay muted playsinline></video>
-        </div>
-        <div class="video-wrapper">
-            <span class="name-tag">Sagovornik</span>
-            <video id="udaljeniVideo" autoplay playsinline></video>
+
+    <div id="joinScreen" class="join-screen">
+        <div class="join-card">
+            <h1>Signal</h1>
+            <p class="sub">P2P video poziv preko WebRTC-a</p>
+            <input id="nameInput" type="text" placeholder="Tvoje ime" maxlength="40">
+            <input id="roomInput" type="text" placeholder="Soba (ostavi prazno za lobi)" maxlength="40">
+            <button id="joinBtn">Uđi</button>
         </div>
     </div>
 
-    <div id="kontrole">
-        <button id="pozoviBtn">Započni Poziv</button>
-        <button id="muteBtn">Ugasi Mikrofon</button>
-        <button id="shareScreenBtn">Podeli Ekran</button>
+    <div id="callScreen" class="call-screen hidden">
+        <div class="stage">
+            <div id="grid" class="grid">
+                <div class="tile">
+                    <video id="localVideo" autoplay muted playsinline></video>
+                    <span class="label">Ti</span>
+                </div>
+            </div>
+
+            <aside class="chat">
+                <div id="chatBox" class="chat-box"></div>
+                <div class="chat-input">
+                    <input id="chatInput" type="text" placeholder="Poruka… (@ai za bota)" maxlength="500">
+                    <button id="chatSend">Pošalji</button>
+                </div>
+            </aside>
+        </div>
+
+        <footer class="controls">
+            <button id="micBtn">Mikrofon</button>
+            <button id="camBtn">Kamera</button>
+            <button id="leaveBtn" class="danger">Izađi</button>
+        </footer>
+    </div>
+
+    <div id="botWidget" class="bot-widget">
+        <div id="botHeader" class="bot-header">
+            <span>AI Bot</span>
+            <span class="bot-toggle">▾</span>
+        </div>
+        <div class="bot-body">
+            <div id="botMessages" class="bot-messages">
+                <div class="bot-msg bot">Zdravo!</div>
+            </div>
+            <div class="bot-input">
+                <input id="botInput" type="text" placeholder="Poruka botu…" maxlength="500">
+                <button id="botSend">Pošalji</button>
+            </div>
+        </div>
     </div>
 
     <script src="/socket.io/socket.io.js"></script>
